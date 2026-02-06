@@ -1,0 +1,2377 @@
+/* ========================================================================
+   PROJECTA
+   ========================================================================
+   Organization:
+   1. CSS Variables
+   2. Global Resets & Base Styles
+   3. Form Components (Login/Signup)
+   4. Sidebar Navigation
+   5. Header
+   6. Main Layout
+   7. Dashboard Stats
+   8. Tables
+   9. Projects Grid & Cards
+   10. Modals
+   11. Client Cards (Admin)
+   12. Collaborators
+   13. Tickets Management
+   14. Badges & Tags
+   15. Buttons & Actions
+   16. File Upload
+   17. Utilities & Responsive
+   ======================================================================== */
+
+
+/* ========================================================================
+   1. CSS VARIABLES
+   ======================================================================== */
+
+:root {
+  /* Main Color Palette */
+  --color-indigo-primary: #6366F1;
+  --color-indigo-dark: #4F46E5;
+  --color-indigo-light: #EEF2FF;
+  --color-indigo-muted: #7f81f4;
+  
+  /* Success / Green */
+  --color-success: #10B981;
+  --color-success-dark: #059669;
+  --color-success-light: #D1FAE5;
+  --color-success-text: #065F46;
+  
+  /* Warning / Orange */
+  --color-warning: #F59E0B;
+  --color-warning-dark: #D97706;
+  --color-warning-light: #FEF3C7;
+  --color-warning-text: #92400E;
+  
+  /* Danger / Red */
+  --color-danger: #EF4444;
+  --color-danger-light: #FEE2E2;
+  --color-danger-pale: #FFF1F2;
+  
+  /* Blue / Info */
+  --color-blue: #2ca9e3;
+  --color-blue-light: #DBEAFE;
+  --color-blue-text: #1E40AF;
+  
+  /* Slate / Gray Scale */
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+  
+  /* Background Colors */
+  --bg-primary: #FBFBFE;
+  --bg-secondary: #F8FAFC;
+  --bg-card: #ffffff;
+  
+  /* Border Colors */
+  --border-light: #F1F5F9;
+  --border-medium: #E2E8F0;
+  
+  /* Text Colors */
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-dark: #0F172A;
+}
+
+
+/* ========================================================================
+   2. GLOBAL RESETS & BASE STYLES
+   ======================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  line-height: 1.5;
+}
+
+
+/* ========================================================================
+   3. FORM COMPONENTS (LOGIN / SIGNUP)
+   ======================================================================== */
+
+/* --- Base Form Styles --- */
+
+form {
+  background-color: #ffffff;
+  padding: 2rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+form img {
+  display: block;
+  margin: -1rem auto 1.5rem;
+  max-width: 160px;
+}
+
+form h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0F172A;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
+}
+
+form h1 span {
+  color: #6366F1;
+  font-weight: 700;
+}
+
+form h1 span a {
+  text-decoration: none;
+  color: #6366F1;
+  font-weight: 700;
+  transition: all 0.2 ease-out;
+}
+
+form h1 span a:hover{
+  text-decoration: underline;
+  color: #6366F1;
+  font-weight: 700;
+}
+
+/* --- Form Labels & Inputs --- */
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+#roleLabel {
+  display: inline; 
+  text-align: center;
+}
+
+#roleSelect, #projectSelect {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background-color: #fff;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.role {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background-color: #FBFBFE;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #6366F1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background-color: #fff;
+}
+
+/* --- Textarea Styles --- */
+
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background-color: #FBFBFE;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  resize: vertical;     
+  min-height: 100px;   
+  display: block;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #6366F1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background-color: #fff;
+}
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* --- Form Buttons --- */
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #6366F1;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+}
+
+button:hover {
+  background-color: #4F46E5;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* --- Password Recovery Link --- */
+
+#forgotPasswd {
+  text-align: center;
+  margin: 24px auto -20px auto;
+}
+
+.linkPassword {
+  color: #6366F1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.linkPassword:hover {
+  text-decoration: underline;
+}
+
+/* --- Code Input (2FA / Recovery) --- */
+
+.code-inputs label {
+  display: block;
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 0.5rem;
+  margin-top: 20px;
+}
+
+.code-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.code-group input {
+  width: 100%;
+  max-width: 52px;
+  height: 52px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Sign Up Page --- */
+
+#signUpForm {
+  display: flex;
+  max-width: 700px;
+  justify-content: space-between;
+  align-items: stretch; 
+  gap: 2rem;
+}
+
+#leftSignUp,
+#rightSignUp {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-divider {
+  width: 1px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0 1rem;
+}
+
+
+/* ========================================================================
+   4. SIDEBAR NAVIGATION
+   ======================================================================== */
+
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  background-color: #0F172A;
+  color: #F8FAFC;
+  padding: 24px 0;
+  z-index: 100;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px 24px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar-logo span {
+  font-size: 1em;
+  font-weight: 700;
+  color: #6366F1;
+  letter-spacing: -0.01em;
+}
+
+.sidebar-footer span {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #7f81f4;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-top: 190px;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-footer.user span {
+  margin-top: 290px;
+}
+
+#sidebar ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0 12px;
+}
+
+#sidebar li a {
+  display: flex;
+  align-items: center;
+  color: #94A3B8;
+  text-decoration: none;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+#sidebar li a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+#sidebar li a.active {
+  background-color: #6366F1;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+
+/* ========================================================================
+   5. HEADER
+   ======================================================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 15%;
+  right: 0;
+  height: 72px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 1px solid #F1F5F9;
+  z-index: 10;
+}
+
+.header input {
+  flex: 1;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  padding: 10px 20px;
+  background-color: #F1F5F9;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.header input:focus {
+  background-color: #fff;
+  border: 1px solid #6366F1;
+  box-shadow: none;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: #64748B;
+  margin-bottom: 8px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #6366F1;
+  font-weight: 500;
+}
+
+.client-welcome {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+
+/* ========================================================================
+   6. MAIN LAYOUT
+   ======================================================================== */
+
+main {
+  margin-left: 15%;
+  padding: 104px 40px 40px 40px;
+}
+
+#titleboard {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 32px;
+  letter-spacing: -0.025em;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.client-subtitle {
+  color: #64748B;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.action-buttons .btn-primary {
+  margin-top: 15px;
+  padding-right: auto;
+}
+
+.action-buttons .btn-outline {
+  text-align: center;
+  text-decoration: none;
+  background-color: #F8FAFC;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  height: 2.75rem;
+  margin-top: 15px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.action-buttons .btn-outline:hover {
+  background-color: #F8FAFC;
+  border-color: #6366F1;
+  color: #6366F1;
+}
+
+
+/* ========================================================================
+   7. DASHBOARD STATS
+   ======================================================================== */
+
+#board {
+  padding: 0 0 32px 0;
+}
+
+#stats ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+#stats .statdiv {
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+  border: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+#stats .statdiv:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+#stats .statdiv h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#blueTicket { 
+  font-size: 1.75rem; 
+  font-weight: 700; 
+  color: #6366F1; 
+}
+
+#orangeTicket { 
+  font-size: 1.75rem; 
+  font-weight: 700; 
+  color: #F59E0B; 
+}
+
+#greenTicket { 
+  font-size: 1.75rem; 
+  font-weight: 700; 
+  color: #10B981; 
+}
+
+
+/* ========================================================================
+   8. TABLES
+   ======================================================================== */
+
+/* --- Overview Section --- */
+
+#overview {
+  margin-top: 8px;
+}
+
+.overview-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #F1F5F9;
+}
+
+.overview-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #0F172A;
+}
+
+.overview-card p {
+  font-size: 0.95rem;
+  color: #64748B;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* --- Tickets Table --- */
+
+.tickets-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px;
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+.tickets-table th {
+  background-color: #F8FAFC;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #F1F5F9;
+}
+
+.tickets-table td {
+  padding: 16px;
+  color: #334155;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tickets-table tbody tr:hover {
+  background-color: #F1F5F9;
+}
+
+.tickets-table select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background-color: #fff;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.ticket-status {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background-color: #F8FAFC;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.billable-row {
+  background-color: #FFF1F2 !important;
+}
+
+/* --- Ticket Info Cell --- */
+
+.ticket-info-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-info-cell span {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+
+/* ========================================================================
+   9. PROJECTS GRID & CARDS
+   ======================================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #F1F5F9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-status-tag {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #EEF2FF;
+  color: #6366F1;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.project-status-tag.wait { 
+  background: #F8FAFC; 
+  color: #64748B; 
+  border: 1px solid #E2E8F0; 
+}
+
+.project-status-tag.archived { 
+  background: #FFF1F2; 
+  color: #E11D48; 
+}
+
+.project-status-tag.ready {
+  background-color: #D1FAE5; 
+  color: #065F46;
+}
+
+.project-info h2 {
+  color: #0F172A;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.client-name {
+  font-size: 0.875rem;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- Progress Bars --- */
+
+.progress-container {
+  margin-top: 8px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #475569;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #F1F5F9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar.alert {
+  background-color: #FEE2E2;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #6366F1;
+  border-radius: 10px;
+}
+
+.progress-fill.warning { 
+  background-color: #F59E0B; 
+}
+
+.card-footer {
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+/* --- Project Details Page --- */
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.info-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #F1F5F9;
+}
+
+.info-card h2 {
+  margin-bottom: 24px;
+  color: #0F172A;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contract-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.data-item span:first-child {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.data-item .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.data-item.highlight .value { 
+  color: #6366F1; 
+}
+
+.data-item.extra .value { 
+  color: #EF4444; 
+}
+
+.info-card-footer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.info-card-footer .data-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.progress-container.large .progress-bar { 
+  height: 12px; 
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  margin-top: 10px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.file-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #F8FAFC;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  text-decoration: none;
+  margin-top: 32px;
+  transition: all 0.2s;
+}
+
+.file-link:hover { 
+  background: #fff; 
+}
+
+.file-icon { 
+  font-size: 20px; 
+}
+
+.file-name { 
+  font-weight: 600; 
+  color: #1E293B; 
+  margin-left: -10px;
+}
+
+/* --- Collaborators List --- */
+
+.collaborator-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.collaborator-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #F8FAFC;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.collaborators-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collaborators-header a {
+  text-decoration: none;
+  color: white;
+}
+
+.collaborators-header span {
+  font-size: 20px;
+  padding-bottom: 2px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.collaborators-header span:hover {
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
+/* --- Project Tickets Section --- */
+
+.project-tickets-section {
+  margin-top: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.filters select {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background-color: white;
+  font-size: 0.9rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.filter-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+
+/* ========================================================================
+   10. MODALS
+   ======================================================================== */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+#projectModal:target {
+  display: flex;
+}
+
+#projectModalcollab:target {
+  display: flex;
+}
+
+#clientModal:target {
+  display: flex;
+}
+
+#clientEditModal:target {
+  display: flex;
+}
+
+#descModal1:target {
+  display: flex;
+}
+
+#addCollabModal:target {
+  display: flex;
+}
+
+#settingsCollab1:target {
+  display: flex;
+}
+
+#newTicketModal:target {
+  display: flex;
+}
+
+#viewTicketModal:target {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 32px 32px 32px 75px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content .btn-primary {
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+#projectModal .modal-content form {
+  margin-top: -30px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+#newTicketModal .modal-content form {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+#projectModal .desc{
+  margin-top: -20px;
+}
+
+#clientModal .modal-content form {
+  max-height: 450px;
+  margin-top: -40px;
+  overflow-y: auto;
+}
+
+#clientEditModal .modal-content form {
+  max-height: 450px;
+  margin-top: -40px;
+  overflow-y: auto;
+}
+
+#clientModal .modal-header {
+  margin-bottom: 40px;
+}
+
+#clientEditModal .modal-header {
+  margin-bottom: 40px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.close-modal {
+  font-size: 24px;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.close-modal:hover { 
+  color: #0F172A; 
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.modal-body {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* --- Form Groups in Modals --- */
+
+.form-group { 
+  margin-bottom: 1.25rem; 
+}
+
+.form-row { 
+  display: flex; 
+  gap: 20px; 
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.custom-select-styled {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background-color: #FBFBFE;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* --- Modal Variants --- */
+
+.ticket-title-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ticket-desc-view {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.6;
+  padding: 14px;
+}
+
+#descModal1 .modal-content textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background-color: #F8FAFC;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: none;
+  min-height: 150px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* --- Title with Info Icon --- */
+
+.title-with-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.info-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: #EEF2FF;
+  color: #6366F1;
+  border: 1px solid #6366F1;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: serif;
+  transition: all 0.2s ease;
+}
+
+.info-icon-btn:hover {
+  background-color: #6366F1;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* --- Project Request Modals --- */
+
+.request-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.request-info h4 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.request-info p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.contract-link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.request-actions {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* ========================================================================
+10.x MODAL: TICKET DETAILS
+======================================================================== */
+
+.modal-ticket {
+  max-width: 750px;
+  padding: 20px 25px;
+}
+
+/* --- Header --- */
+
+.modal-ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.modal-close-icon {
+  font-size: 20px;
+}
+
+/* --- Meta bar --- */
+
+.ticket-meta-bar {
+  display: flex;
+  gap: 20px;
+  background: var(--color-slate-50);
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--color-slate-200);
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+.ticket-meta-label {
+  color: var(--color-slate-500);
+}
+
+.ticket-meta-status {
+  margin-left: auto;
+}
+
+.status-tag-small {
+  font-size: 0.65rem;
+}
+
+/* --- Layout description --- */
+
+.ticket-details-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* --- Cards --- */
+
+.info-card-title {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.info-card-description {
+  font-size: 0.85rem;
+  color: var(--color-slate-600);
+  line-height: 1.4;
+  max-height: 120px;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 10px;
+  border: 1px solid var(--color-slate-100);
+  border-radius: 6px;
+}
+
+.info-card-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.billing-tag-small {
+  font-size: 0.75rem;
+}
+
+.ticket-time-strong {
+  font-weight: 700;
+}
+
+/* Avatar - Variants */
+
+.avatar-small {
+  width: 25px;
+  height: 25px;
+  font-size: 0.6rem;
+}
+
+.avatar-green {
+  background: var(--color-success);
+}
+
+/* --- Footer --- */
+
+.modal-ticket-footer {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--color-slate-100);
+}
+
+.btn-small {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .modal-ticket {
+    max-width: 100%;
+    padding: 16px;
+    margin: 0 8px;
+  }
+
+  .ticket-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ticket-meta-status {
+    margin-left: 0;
+  }
+}
+
+
+/* ========================================================================
+10.y MODAL: CREATE NEW TICKET
+======================================================================== */
+
+.modal-ticket-create {
+  max-width: 700px;
+}
+
+.ticket-form {
+  padding: 0;
+  box-shadow: none;
+  max-width: 100%;
+  background-color: transparent;
+}
+
+/* --- Row with 2 columns for type + hours --- */
+
+.ticket-form-row {
+  display: flex;
+  gap: 16px;
+  background: var(--bg-secondary);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-medium);
+}
+
+.form-group-inline {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+/* --- warning --- */
+
+.ticket-warning-box {
+  background: var(--color-warning-light);
+  border: 1px solid var(--color-warning);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.ticket-warning-box p {
+  font-size: 0.85rem;
+  color: var(--color-warning-text);
+  margin: 0;
+}
+
+/* -- Footer --- */
+
+.modal-ticket-footer-create {
+  margin-top: 30px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .modal-ticket-create {
+    max-width: 100%;
+    margin: 0 8px;
+  }
+
+  .ticket-form-row {
+    flex-direction: column;
+  }
+
+  .modal-ticket-footer-create {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .modal-ticket-footer-create .btn-secondary,
+  .modal-ticket-footer-create .btn-primary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ========================================================================
+   11. CLIENT CARDS (ADMIN)
+   ======================================================================== */
+
+.admin-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.client-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.client-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  background: #6366F1;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.client-meta h2 {
+  font-size: 1.1rem;
+  color: #0F172A;
+  margin-bottom: 2px;
+}
+
+.client-meta span {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+.client-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 16px 0;
+  border-top: 1px dashed #E2E8F0;
+  border-bottom: 1px dashed #E2E8F0;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-weight: 700;
+  color: #1E293B;
+  font-size: 1.1rem;
+}
+
+.client-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-actions {
+  flex: 1;
+}
+
+.footer-settings {
+  display: flex;
+  gap: 8px;
+}
+
+
+/* ========================================================================
+   12. COLLABORATORS
+   ======================================================================== */
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: #6366F1;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-group .avatar {
+  border: 2px solid #fff;
+  margin-left: -12px;
+  transition: all 0.2s;
+}
+
+.avatar-group .avatar:first-child { 
+  margin-left: 0; 
+}
+
+.avatar-group .avatar:hover { 
+  transform: translateY(-3px); 
+  z-index: 10; 
+}
+
+/* --- Collaborator Selector --- */
+
+.collab-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px;
+  background: #FFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.collab-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #1E293B;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.collab-checkbox:hover {
+  background: #F1F5F9;
+}
+
+.collab-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #6366F1;
+  margin: 0;
+}
+
+
+/* ========================================================================
+   13. TICKETS MANAGEMENT
+   ======================================================================== */
+
+.alert-ticket {
+  z-index: 1;
+  font-size: small;
+  font-family: inherit;
+  position: absolute;
+  left: 130px;
+  bottom: 30px;
+  background-color: #ef4444;
+  padding: 3px 9px;
+  border-radius: 50px;
+}
+
+.readonly-input {
+  background-color: #E2E8F0 !important;
+  color: #475569 !important;
+  font-weight: 700;
+  cursor: not-allowed;
+  border: 1px solid #CBD5E1 !important;
+  letter-spacing: 1px;
+}
+
+
+/* ========================================================================
+   14. BADGES & TAGS
+   ======================================================================== */
+
+/* --- Status Tags --- */
+
+.status-tag {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-tag.done { 
+  background: #D1FAE5; 
+  color: #065F46; 
+}
+
+.status-tag.in-progress { 
+  background: #DBEAFE; 
+  color: #1E40AF; 
+}
+
+.status-tag.pending { 
+  background: #FEF3C7; 
+  color: #92400E; 
+}
+
+/* --- Billing Tags --- */
+
+.billing-tag { 
+  font-weight: 600; 
+  font-size: 0.85rem; 
+}
+
+.billing-tag.included { 
+  color: #10B981; 
+}
+
+.billing-tag.extra { 
+  color: #EF4444; 
+}
+
+/* --- Badge Status --- */
+
+.badge-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #F1F5F9;
+  color: #475569;
+  font-weight: 600;
+}
+
+.badge-status.active {
+  background: #EEF2FF;
+  color: #6366F1;
+}
+
+/* --- Priority Badges --- */
+
+.badge-priority {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-priority.high { 
+  background: #FEE2E2; 
+  color: #EF4444; 
+}
+
+.badge-priority.medium { 
+  background: #FEF3C7; 
+  color: #D97706; 
+}
+
+.badge-priority.low { 
+  background: #F1F5F9; 
+  color: #475569; 
+}
+
+/* --- Alert Badge --- */
+
+.badge-alert {
+  background-color: #FEE2E2;
+  color: #EF4444;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+/* ========================================================================
+   15. BUTTONS & ACTIONS
+   ======================================================================== */
+
+/* --- Primary Button --- */
+
+.btn-primary {
+  background-color: #6366F1;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.btn-primary.alert { 
+  background-color: #EF4444;
+}
+
+.btn-primary:hover {
+  background-color: #4F46E5;
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+/* --- Secondary Button --- */
+
+.btn-secondary {
+  background-color: #F1F5F9;
+  color: #475569;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- Outline Button --- */
+
+.btn-outline {
+  text-decoration: none;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: #F8FAFC;
+  border-color: #6366F1;
+  color: #6366F1;
+}
+
+/* --- Icon Settings Button --- */
+
+.btn-icon-settings {
+  text-decoration: none;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-icon-settings:hover {
+  background: #E2E8F0;
+}
+
+/* --- Action Buttons (Approve / Decline) --- */
+
+.btn-action {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.btn-action.approve {
+  background-color: #10B981;
+  color: white;
+}
+
+.btn-action.approve:hover {
+  background-color: #059669;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.btn-action.decline {
+  background-color: #F1F5F9;
+  color: #64748B;
+}
+
+.btn-action.decline:hover {
+  background-color: #E2E8F0;
+  color: #EF4444;
+}
+
+/* --- Approve / Reject Buttons (Project Requests) --- */
+
+.btn-approve {
+  background-color: #10B981;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-reject {
+  background-color: #EF4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-approve:hover { 
+  opacity: 0.9; 
+  background-color: #10B981; 
+}
+
+.btn-reject:hover { 
+  opacity: 0.9; 
+  background-color: #EF4444;
+}
+
+
+/* ========================================================================
+   16. FILE UPLOAD
+   ======================================================================== */
+
+.file-drop-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.file-drop-area:hover {
+  border-color: #6366F1; 
+  background-color: #f1f5f9;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fake-btn {
+  flex-shrink: 0;
+  background-color: #6366F1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.file-msg {
+  font-size: 0.9em;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-drop-area.is-active {
+  background-color: #e0f2fe;
+  border-color: #6366F1;
+}
+
+
+/* ========================================================================
+   17. UTILITIES & RESPONSIVE
+   ======================================================================== */
+
+/* --- Responsive Adjustments --- */
+
+/* Large tablets / small laptops: tighten padding and card spacing */
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 24px;
+  }
+
+  main {
+    padding: 96px 24px 32px;
+  }
+
+  .overview-card,
+  .project-card,
+  .client-card,
+  .info-card {
+    padding: 20px;
+  }
+
+  .modal-content {
+    padding: 24px;
+  }
+}
+
+/* Tablets: slimmer sidebar, smaller grids, reduce header width */
+@media (max-width: 1024px) {
+  #sidebar {
+    width: 200px;
+  }
+
+  #sidebar ul {
+    padding: 0 8px;
+  }
+
+  #sidebar li a {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .sidebar-logo {
+    padding: 0 16px 16px 16px;
+  }
+
+  .sidebar-footer span {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 120px;
+  }
+
+  .header,
+  main {
+    margin-left: 200px;
+  }
+
+  .header input {
+    max-width: 340px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .admin-clients-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .details-grid {
+    gap: 24px;
+  }
+
+  .contract-data {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large phones / small tablets: wrap header, allow horizontal table scroll */
+@media (max-width: 900px) {
+  .header {
+    height: auto;
+    padding: 12px 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header input {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    text-align: center;
+  }
+
+  .client-welcome {
+    width: 100%;
+    text-align: center;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+  }
+
+  .card-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .overview-card {
+    overflow-x: auto;
+  }
+
+  .tickets-table {
+    min-width: 720px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .admin-clients-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .card-footer,
+  .client-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .file-drop-area {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .file-msg {
+    white-space: normal;
+  }
+
+  .collab-selector {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stack project details and contract data earlier */
+@media (max-width: 850px) {
+  .details-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .contract-data { 
+    grid-template-columns: 1fr; 
+  }
+}
+
+/* Mobile: convert sidebar to bottom nav, stack layouts, reduce padding */
+@media (max-width: 768px) {
+  #sidebar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    height: 64px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  #sidebar .sidebar-logo,
+  #sidebar .sidebar-footer {
+    display: none;
+  }
+
+  #sidebar ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar li a {
+    margin: 0;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+
+  .header,
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  main {
+    padding: 96px 16px 96px;
+  }
+
+  #titleboard {
+    font-size: 1.5rem;
+  }
+
+  #stats ul {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .projects-grid,
+  .admin-clients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-status-tag {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .project-card {
+    gap: 16px;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    padding: 20px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  #signUpForm {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .vertical-divider {
+    display: none;
+  }
+
+  .card-footer .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Small phones: stack card headers and ensure buttons fill width */
+@media (max-width: 640px) {
+  .code-group {
+    gap: 0.4rem;
+  }
+
+  .code-group input {
+    max-width: 40px;
+    height: 44px;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  form {
+    max-width: 340px;
+    padding: 1.5rem;
+  }
+
+  form img {
+    max-width: 120px;
+  }
+
+  form h1 {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-actions,
+  .action-buttons {
+    width: 100%;
+  }
+
+  .client-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .client-stats-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tickets-table {
+    font-size: 0.85rem;
+    min-width: 640px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn-action {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* Very small phones: tighter form + modal padding */
+@media (max-width: 480px) {
+  form {
+    max-width: 300px;
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  form img {
+    max-width: 105px;
+  }
+
+  form h1 {
+    font-size: 1rem;
+  }
+
+  .code-group {
+    gap: 0.35rem;
+  }
+
+  .code-group input {
+    max-width: 36px;
+    height: 40px;
+    font-size: 0.95rem;
+    padding: 0;
+  }
+
+  .file-drop-area {
+    padding: 18px;
+  }
+
+  .header {
+    padding: 10px 12px;
+  }
+
+  .modal-content {
+    padding: 16px;
+    max-height: 80vh;
+  }
+
+  .info-card {
+    padding: 16px;
+  }
+
+  .project-status-tag {
+    font-size: 0.65rem;
+  }
+}

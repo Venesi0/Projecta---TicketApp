@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles.css" />
+    <title>Projects - Projecta</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      sizes="32x32"
+      href="./../img/planet_logo_32x32.png"
+    />
+  </head>
+  <body>
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <img src="./../img/planet_logo.png" alt="Logo" />
+        <span>Projecta</span>
+      </div>
+      <ul>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./projects.html" class="active">Projects</a></li>
+        <li><a href="./tickets.html">Tickets</a></li>
+        <li><a href="./admin-clients.html">Clients</a></li>
+        <li><a href="./../collaborators.html">Collaborators</a></li>
+        <li><a href="./../login/logpage.html">Logout</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <span>Connected as ADMIN</span>
+      </div>
+    </nav>
+
+    <header class="header">
+      <input type="text" placeholder="Search for a project..." />
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1 id="titleboard">Projects</h1>
+        <!-- <button class="btn-primary">+ New Project</button> -->
+        <a href="#projectModal" class="btn-primary alert"
+          >+3 Project Requests</a
+        >
+      </div>
+
+      <section class="projects-grid">
+        <div class="project-card">
+          <div class="project-status-tag">Active</div>
+          <div class="project-info">
+            <h2>Project 1</h2>
+            <p class="client-name">Client: 1</p>
+          </div>
+          <div class="project-stats">
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span>Contract Hours</span>
+                <span>35/50h</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>8 Open Tickets</span>
+              <a href="./project-details.html" class="btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status-tag ready">Ready</div>
+          <div class="project-info">
+            <h2>Project 5</h2>
+            <p class="client-name">Client: 5</p>
+          </div>
+          <div class="project-stats">
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span>Contract Hours</span>
+                <span>35/50h</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span><a href="#" class="btn-outline"> Confirm project </a></span>
+              <a href="./project-details.html" class="btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status-tag">Active</div>
+          <div class="project-info">
+            <h2>Project 2</h2>
+            <p class="client-name">Client: 2</p>
+          </div>
+          <div class="project-stats">
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span>Contract Hours</span>
+                <span>102/100h</span>
+              </div>
+              <div class="progress-bar alert">
+                <div class="progress-fill warning" style="width: 100%"></div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>3 Open Tickets</span>
+              <a href="./project-details.html" class="btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status-tag archived">archived</div>
+          <div class="project-info">
+            <h2>Project 3</h2>
+            <p class="client-name">Client: 3</p>
+          </div>
+          <div class="project-stats">
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span>Contract Hours</span>
+                <span>12/40h</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%"></div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>0 Open Ticket</span>
+              <a href="./project-details.html" class="btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status-tag wait">Waiting for ticket</div>
+          <div class="project-info">
+            <h2>Project 4</h2>
+            <p class="client-name">Client: 4</p>
+          </div>
+          <div class="project-stats">
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span>Contract Hours</span>
+                <span>12/40h</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%"></div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>0 Open Ticket</span>
+              <a href="./project-details.html" class="btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--Modal for project requests-->
+    <div id="projectModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Project Requests</h2>
+          <a href="#" class="close-modal">&times;</a>
+        </div>
+
+        <div class="modal-body">
+          <div class="request-item">
+            <div class="request-info">
+              <div class="title-with-info">
+                <h3>E-commerce Redesign</h3>
+                <a href="#descModal1" class="info-icon-btn">i</a>
+              </div>
+              <p><strong>Client:</strong> TechCorp Solutions</p>
+              <p>
+                <strong>Hours:</strong> 120h |
+                <a href="#" class="contract-link">View Contract PDF</a>
+              </p>
+            </div>
+            <div class="request-actions">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-reject">Reject</button>
+            </div>
+          </div>
+
+          <div class="request-item">
+            <div class="request-info">
+              <div class="title-with-info">
+                <h3>E-commerce Redesign</h3>
+                <a href="#descModal1" class="info-icon-btn">i</a>
+              </div>
+              <p><strong>Client:</strong> StartUp Inc.</p>
+              <p>
+                <strong>Hours:</strong> 45h |
+                <a href="#" class="contract-link">View Contract PDF</a>
+              </p>
+            </div>
+            <div class="request-actions">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-reject">Reject</button>
+            </div>
+          </div>
+
+          <div class="request-item">
+            <div class="request-info">
+              <div class="title-with-info">
+                <h3>E-commerce Redesign</h3>
+                <a href="#descModal1" class="info-icon-btn">i</a>
+              </div>
+              <p><strong>Client:</strong> Global Bank</p>
+              <p>
+                <strong>Hours:</strong> 200h |
+                <a href="#" class="contract-link">View Contract PDF</a>
+              </p>
+            </div>
+            <div class="request-actions">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-reject">Reject</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" class="btn-secondary">Close</a>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for project description-->
+    <div id="descModal1" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Project Description</h2>
+          <a href="#projectModal" class="close-modal">&times;</a>
+        </div>
+        <div class="form-group">
+          <label>Detailed Overview</label>
+          <textarea readonly>
+This project involves a complete overhaul of the existing e-commerce platform, focusing on improving user experience, mobile responsiveness, and integrating a new payment gateway. The client expects a modern Indigo-based theme.</textarea
+          >
+        </div>
+        <div class="modal-footer">
+          <a href="#projectModal" class="btn-primary">Back to Requests</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

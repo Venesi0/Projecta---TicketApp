@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles.css" />
+    <title>My Tickets - Projecta</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      sizes="32x32"
+      href="./../img/planet_logo_32x32.png"
+    />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <img src="./../img/planet_logo.png" alt="Logo" />
+        <span>Projecta</span>
+      </div>
+      <ul>
+        <li><a href="./user-projects.html">My Projects</a></li>
+        <li><a href="./user-tickets.html" class="active">My Tickets</a></li>
+        <li><a href="./user-contact.html">Contact Support</a></li>
+        <li><a href="./../login/logpage.html">Logout</a></li>
+      </ul>
+      <div class="sidebar-footer user">
+        <span>Connected as CLIENT</span>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="client-welcome">My Tickets Overview</div>
+      <input type="text" placeholder="Search by ticket ID or subject..." />
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <h1 id="titleboard">My Tickets</h1>
+        <a href="#newTicketModal" class="btn-primary">+ New Ticket Request</a>
+      </div>
+
+      <!-- STATS SECTION -->
+      <section id="board">
+        <div id="stats">
+          <ul>
+            <li class="statdiv">
+              <h2>Open</h2>
+              <span id="blueTicket">5</span>
+            </li>
+            <li class="statdiv">
+              <h2>In Progress</h2>
+              <span id="orangeTicket">3</span>
+            </li>
+            <li class="statdiv">
+              <h2>Awaiting Validation</h2>
+              <span id="greenTicket">2</span>
+            </li>
+            <li class="statdiv">
+              <h2>Completed</h2>
+              <span style="color: #64748b; font-size: 1.75rem; font-weight: 700"
+                >18</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TICKETS TO VALIDATE SECTION -->
+      <section id="overview" style="margin-bottom: 32px">
+        <div class="overview-card">
+          <div class="card-header-flex">
+            <h3>🔔 Tickets Requiring Your Attention</h3>
+            <span class="badge-alert">2 actions required</span>
+          </div>
+
+          <table class="tickets-table">
+            <thead>
+              <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Project</th>
+                <th>Time Spent</th>
+                <th>Status</th>
+                <th style="text-align: right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#TK-109</td>
+                <td>Payment Module Integration</td>
+                <td>Project 1</td>
+                <td><strong>4.5h</strong></td>
+                <td>
+                  <span class="status-tag done">To Validate (Done)</span>
+                </td>
+                <td style="text-align: right">
+                  <button class="btn-action approve">Approve</button>
+                  <button class="btn-action decline">Request Changes</button>
+                </td>
+              </tr>
+              <tr class="billable-row">
+                <td>#TK-118</td>
+                <td>SEO Image Optimization</td>
+                <td>Project 1</td>
+                <td><strong>2.0h</strong></td>
+                <td>
+                  <span class="status-tag pending">To Validate (Billable)</span>
+                </td>
+                <td style="text-align: right">
+                  <button class="btn-action approve">Approve</button>
+                  <button class="btn-action decline">Refuse</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ALL TICKETS SECTION -->
+      <section class="overview-card">
+        <div class="card-header-flex">
+          <h3>All My Tickets</h3>
+          <div class="filter-group">
+            <select id="projectFilter">
+              <option>All Projects</option>
+              <option>Project 1</option>
+              <option>Project 2</option>
+              <option>Project 3</option>
+            </select>
+            <select id="statusFilter">
+              <option>All Statuses</option>
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Waiting for Me</option>
+              <option>Completed</option>
+              <option>To validate</option>
+              <option>Archived</option>
+            </select>
+          </div>
+        </div>
+
+        <table class="tickets-table">
+          <thead>
+            <tr>
+              <th>Ticket</th>
+              <th>Project</th>
+              <th>Status</th>
+              <th>Priority</th>
+              <th>Type</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="ticket-info-cell">
+                  <strong>#TK-201 - Homepage Redesign</strong>
+                  <span>Updated 2 hours ago</span>
+                </div>
+              </td>
+              <td>Project 1</td>
+              <td><span class="status-tag in-progress">In Progress</span></td>
+              <td><span class="badge-priority high">High</span></td>
+              <td><span class="billing-tag included">Included</span></td>
+              <td>Jan 15, 2026</td>
+              <td>
+                <a href="#viewTicketModal" class="btn-icon-settings">👁️</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="ticket-info-cell">
+                  <strong>#TK-198 - Contact Form Bug</strong>
+                  <span>Updated 1 day ago</span>
+                </div>
+              </td>
+              <td>Project 1</td>
+              <td><span class="status-tag done">Completed</span></td>
+              <td><span class="badge-priority medium">Medium</span></td>
+              <td><span class="billing-tag included">Included</span></td>
+              <td>Jan 10, 2026</td>
+              <td>
+                <a href="#viewTicketModal" class="btn-icon-settings">👁️</a>
+              </td>
+            </tr>
+
+            <tr class="billable-row">
+              <td>
+                <div class="ticket-info-cell">
+                  <strong>#TK-195 - Custom Analytics Dashboard</strong>
+                  <span>Updated 3 days ago</span>
+                </div>
+              </td>
+              <td>Project 2</td>
+              <td><span class="status-tag pending">Waiting Approval</span></td>
+              <td><span class="badge-priority low">Low</span></td>
+              <td><span class="billing-tag extra">Billable</span></td>
+              <td>Jan 5, 2026</td>
+              <td>
+                <a href="#viewTicketModal" class="btn-icon-settings">👁️</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="ticket-info-cell">
+                  <strong>#TK-192 - Mobile Responsiveness</strong>
+                  <span>Updated 1 week ago</span>
+                </div>
+              </td>
+              <td>Project 1</td>
+              <td><span class="status-tag done">Completed</span></td>
+              <td><span class="badge-priority high">High</span></td>
+              <td><span class="billing-tag included">Included</span></td>
+              <td>Dec 28, 2025</td>
+              <td>
+                <a href="#viewTicketModal" class="btn-icon-settings">👁️</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="ticket-info-cell">
+                  <strong>#TK-187 - Database Migration</strong>
+                  <span>Updated 2 weeks ago</span>
+                </div>
+              </td>
+              <td>Project 3</td>
+              <td><span class="status-tag in-progress">In Progress</span></td>
+              <td><span class="badge-priority medium">Medium</span></td>
+              <td><span class="billing-tag included">Included</span></td>
+              <td>Dec 20, 2025</td>
+              <td>
+                <a href="#viewTicketModal" class="btn-icon-settings">👁️</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- ========================================================================
+         MODAL: VIEW TICKET DETAILS
+         ======================================================================== -->
+    <div id="viewTicketModal" class="modal-overlay">
+      <div class="modal-content modal-ticket">
+        <div class="modal-header modal-ticket-header">
+          <div class="ticket-title-header">
+            <span class="badge-priority high">High Priority</span>
+            <h2>#TK-201 - Homepage Redesign</h2>
+          </div>
+          <a href="#" class="close-modal modal-close-icon">&times;</a>
+        </div>
+
+        <div class="ticket-meta-bar">
+          <div>
+            <span class="ticket-meta-label">Project:</span>
+            <strong>Project 1</strong>
+          </div>
+          <div>
+            <span class="ticket-meta-label">By:</span>
+            <strong>Me (ACME)</strong>
+          </div>
+          <div>
+            <span class="ticket-meta-label">Date:</span>
+            <strong>Jan 15, 2026</strong>
+          </div>
+          <div class="ticket-meta-status">
+            <span class="status-tag in-progress status-tag-small"
+              >In Progress</span
+            >
+          </div>
+        </div>
+
+        <div class="ticket-details-grid">
+          <div class="info-card">
+            <h3 class="info-card-title">Description</h3>
+            <div class="info-card-description">
+              Complete redesign of the homepage to align with brand identity.<br />
+              • Modern, clean design<br />
+              • Mobile-first approach<br />
+              • SEO-optimized structure
+            </div>
+          </div>
+
+          <div class="info-card info-card-side">
+            <div class="info-row">
+              <span class="ticket-meta-label">Type:</span>
+              <span class="billing-tag included billing-tag-small"
+                >Included</span
+              >
+            </div>
+
+            <div class="info-row">
+              <span class="ticket-meta-label">Time:</span>
+              <span class="ticket-time-strong">5.5h / 12h</span>
+            </div>
+
+            <div class="progress-container progress-container-small">
+              <div class="progress-bar progress-bar-small">
+                <div class="progress-fill progress-fill-46"></div>
+              </div>
+            </div>
+
+            <div class="info-row info-row-team">
+              <span class="ticket-meta-label">Team:</span>
+              <div class="avatar-group">
+                <div class="avatar avatar-small" title="John D.">JD</div>
+                <div class="avatar avatar-small avatar-green" title="Alice S.">
+                  AS
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer modal-ticket-footer">
+          <a href="#support" class="btn-outline btn-small">Support</a>
+          <a href="#" class="btn-secondary btn-small">Close</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         MODAL: CREATE NEW TICKET
+         ======================================================================== -->
+    <div id="newTicketModal" class="modal-overlay">
+      <div class="modal-content modal-ticket modal-ticket-create">
+        <div class="modal-header">
+          <h2>📝 Create New Ticket Request</h2>
+          <a href="#" class="close-modal">&times;</a>
+        </div>
+
+        <form class="ticket-form">
+          <div class="form-group">
+            <label>Project</label>
+            <select class="custom-select-styled" required>
+              <option value="">-- Select a project --</option>
+              <option>Project 1 - Website Redesign</option>
+              <option>Project 2 - Mobile App</option>
+              <option>Project 3 - E-commerce Platform</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Subject / Title</label>
+            <input
+              type="text"
+              placeholder="e.g., Login page is not responsive on mobile"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Priority Level</label>
+            <select class="custom-select-styled" required>
+              <option value="" selected disabled>Select priority...</option>
+              <option>Low - Can wait</option>
+              <option>Medium - Normal priority</option>
+              <option>High - Important</option>
+              <option>Urgent - Blocking issue</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea
+              placeholder="Please describe your request in detail. Include:
+- What is the issue or feature request?
+- Steps to reproduce (if applicable)
+- Expected behavior
+- Any additional context or screenshots"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-row ticket-form-row">
+            <div class="form-group form-group-inline">
+              <label>Type of Request</label>
+              <select class="custom-select-styled">
+                <option selected>Included in Contract</option>
+                <option>Additional Service (Billable)</option>
+              </select>
+            </div>
+            <div class="form-group form-group-inline">
+              <label>Estimated Hours (Optional)</label>
+              <input
+                type="number"
+                placeholder="How long do you think this will take?"
+                step="0.5"
+              />
+            </div>
+          </div>
+
+          <div class="ticket-warning-box">
+            <p>
+              <strong>💡 Info:</strong>
+              If you select "Additional Service", you will be charged for each
+              hour on this ticket.
+            </p>
+          </div>
+
+          <div
+            class="modal-footer modal-ticket-footer modal-ticket-footer-create"
+          >
+            <a href="#" class="btn-secondary">Cancel</a>
+            <button type="submit" class="btn-primary">
+              Submit Ticket Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

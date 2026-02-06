@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles.css" />
+    <title>Collaborators - Projecta</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      sizes="32x32"
+      href="./../img/planet_logo_32x32.png"
+    />
+  </head>
+  <body>
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <img src="./../img/planet_logo.png" alt="Logo" />
+        <span>Projecta</span>
+      </div>
+      <ul>
+        <li><a href="./user-projects.html">My Projects</a></li>
+        <li><a href="./user-tickets.html">My Tickets</a></li>
+        <li>
+          <a href="./user-contact.html" class="active">Contact Support</a>
+        </li>
+        <li><a href="./../login/logpage.html">Logout</a></li>
+      </ul>
+      <div class="sidebar-footer user">
+        <span>Connected as CLIENT</span>
+      </div>
+    </nav>
+
+    <header class="header">
+      <input type="text" placeholder="Search for a collaborator..." />
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1 id="titleboard">Collaborators</h1>
+      </div>
+
+      <section class="admin-clients-grid">
+        <div class="client-card">
+          <div class="client-card-header">
+            <div class="client-avatar">JD</div>
+            <div class="client-meta">
+              <h2>John Doe</h2>
+              <span>Fullstack Developer</span>
+            </div>
+            <div class="badge-status active">Available</div>
+          </div>
+
+          <div class="client-stats-row">
+            <div class="stat-item">
+              <span class="stat-label">Projects</span>
+              <span class="stat-value">4</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Tickets</span>
+              <span class="stat-value">12</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Rating</span>
+              <span class="stat-value">4.9</span>
+            </div>
+          </div>
+
+          <div class="client-card-footer">
+            <div class="footer-actions">
+              <div class="client-welcome">alice.s@projecta.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="client-card">
+          <div class="client-card-header">
+            <div class="client-avatar" style="background: #10b981">AS</div>
+            <div class="client-meta">
+              <h2>Alice Smith</h2>
+              <span>UI/UX Designer</span>
+            </div>
+            <div class="badge-status">On Project</div>
+          </div>
+
+          <div class="client-stats-row">
+            <div class="stat-item">
+              <span class="stat-label">Projects</span>
+              <span class="stat-value">2</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Tickets</span>
+              <span class="stat-value">5</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Rating</span>
+              <span class="stat-value">5.0</span>
+            </div>
+          </div>
+
+          <div class="client-card-footer">
+            <div class="footer-actions">
+              <div class="client-welcome">alice.s@projecta.com</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="addCollabModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>New Collaborator</h2>
+          <a href="#" class="close-modal">&times;</a>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="collabName">Full Name</label>
+            <input
+              type="text"
+              id="collabName"
+              placeholder="e.g. Robert Fox"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="collabRole">Role / Position</label>
+            <input
+              type="text"
+              id="collabRole"
+              placeholder="e.g. Backend Developer"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="collabEmail">Email Address</label>
+            <input
+              type="email"
+              id="collabEmail"
+              placeholder="robert@projecta.com"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn-secondary close-modal"
+              style="width: auto"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary" style="width: auto">
+              Add to Team
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Modal for collaborator settings-->
+    <div id="settingsCollab1" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Manage Collaborator</h2>
+          <a href="#" class="close-modal">&times;</a>
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label for="statusSelect">Work Status</label>
+            <select id="statusSelect" style="width: 100%; height: 45px">
+              <option value="available">Available</option>
+              <option value="on-project">On Project</option>
+              <option value="vacation">Vacation / Away</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="editRole">Update Role</label>
+            <input type="text" id="editRole" value="Fullstack Developer" />
+          </div>
+
+          <div
+            class="modal-footer"
+            style="
+              justify-content: space-between;
+              align-items: center;
+              margin-top: 40px;
+            "
+          >
+            <button
+              type="button"
+              class="btn-primary alert"
+              style="width: auto; padding: 10px 15px; font-size: 0.85rem"
+            >
+              Delete Collaborator
+            </button>
+
+            <div style="display: flex; gap: 10px">
+              <a href="#" class="btn-secondary">Cancel</a>
+              <button type="submit" class="btn-primary" style="width: auto">
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
