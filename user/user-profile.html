@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles.css" />
+    <title>User Profile - Projecta</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      sizes="32x32"
+      href="./../img/planet_logo_32x32.png"
+    />
+  </head>
+  <body>
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <img src="./../img/planet_logo.png" alt="Logo" />
+        <span>Projecta</span>
+      </div>
+      <ul>
+        <li><a href="./user-projects.html">My Projects</a></li>
+        <li><a href="./user-tickets.html">My Tickets</a></li>
+        <li><a href="./user-contact.html">Contact Support</a></li>
+        <li><a href="./user-profile.html" class="active">Profile</a></li>
+        <li><a href="./user-settings.html">Settings</a></li>
+        <li><a href="./../login/logpage.php">Logout</a></li>
+      </ul>
+      <div class="sidebar-footer user">
+        <span>Connected as CLIENT</span>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="client-welcome">Client Profile</div>
+      <input type="text" placeholder="Search settings..." />
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1 id="titleboard">My Profile</h1>
+        <a href="#profileModal" class="btn-primary">Edit Profile</a>
+      </div>
+
+      <section class="details-grid">
+        <div class="info-card">
+          <div class="client-card-header" style="align-items: center">
+            <div class="client-avatar" style="font-size: 1.1rem">AD</div>
+            <div class="client-meta">
+              <h2>User Doe</h2>
+              <span>Client</span>
+            </div>
+            <span class="badge-status active">Active</span>
+          </div>
+
+          <div class="contract-data" style="margin-top: 18px">
+            <div class="data-item" style="display: block">
+              <span>Email</span>
+              <span class="value" style="font-size: 1.05rem"
+                >client@projecta.com</span
+              >
+            </div>
+            <div class="data-item">
+              <span>Phone</span>
+              <span class="value" style="display: block; font-size: 1.05rem"
+                >+33 6 00 00 00 00</span
+              >
+            </div>
+            <div class="data-item">
+              <span>Office</span>
+              <span class="value" style="display: block; font-size: 1.05rem"
+                >Paris HQ</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>Quick Stats</h2>
+          <div class="client-stats-row" style="margin-top: 10px">
+            <div class="stat-item">
+              <span class="stat-label">Projects</span>
+              <span class="stat-value">12</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Open Tickets</span>
+              <span class="stat-value">34</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="overview-card" style="margin-top: 24px">
+        <div class="card-header-flex">
+          <h3>Recent Activity</h3>
+          <span class="badge-alert">Last 7 days</span>
+        </div>
+        <table class="tickets-table">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Project</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Updated project scope</td>
+              <td>Project 1</td>
+              <td>Feb 6, 2026</td>
+              <td><span class="status-tag done">Completed</span></td>
+            </tr>
+            <tr>
+              <td>Assigned ticket #TK-1024</td>
+              <td>Project 2</td>
+              <td>Feb 4, 2026</td>
+              <td><span class="status-tag in-progress">In Progress</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <div id="profileModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Edit Profile</h2>
+          <a href="#" class="close-modal">&times;</a>
+        </div>
+        <form style="padding: 0; box-shadow: none" id="adminProfileForm">
+          <div class="form-group">
+            <label for="adminName">Full Name</label>
+            <input type="text" id="adminName" value="Client Doe" required />
+          </div>
+          <div id="adminNameError" class="error-text titanic">
+            Please enter at least 2 words
+          </div>
+
+          <div class="form-group">
+            <label for="adminEmail">Email</label>
+            <input type="email" id="adminEmail" value="client@projecta.com" />
+          </div>
+          <div id="adminEmailError" class="error-text titanic">
+            Please enter a valid email
+          </div>
+
+          <div class="form-group">
+            <label for="adminPhone">Phone</label>
+            <input type="text" id="adminPhone" value="+33 6 00 00 00 00" />
+          </div>
+          <div id="adminPhoneError" class="error-text titanic">
+            Phone must be at least 10 characters
+          </div>
+
+          <div class="modal-footer">
+            <a href="#" class="btn-secondary close-modal">Cancel</a>
+            <button type="submit" class="btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./../script.js"></script>
+  </body>
+</html>

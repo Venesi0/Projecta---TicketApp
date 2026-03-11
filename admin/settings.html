@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles.css" />
+    <title>Admin Settings - Projecta</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      sizes="32x32"
+      href="./../img/planet_logo_32x32.png"
+    />
+  </head>
+  <body>
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <img src="./../img/planet_logo.png" alt="Logo" />
+        <span>Projecta</span>
+      </div>
+      <ul>
+        <li><a href="./dashboard.php">Dashboard</a></li>
+        <li><a href="./projects.php">Projects</a></li>
+        <li><a href="./tickets.php">Tickets</a></li>
+        <li><a href="./admin-clients.php">Clients</a></li>
+        <li><a href="./../collaborators.php">Collaborators</a></li>
+        <li><a href="./profile.html">Profile</a></li>
+        <li><a href="./settings.html" class="active">Settings</a></li>
+        <li><a href="./../login/logpage.php">Logout</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <span>Connected as ADMIN</span>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="client-welcome">Admin Settings</div>
+      <input type="text" placeholder="Search settings..." />
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1 id="titleboard">Settings</h1>
+      </div>
+
+      <section class="details-grid">
+        <div class="info-card">
+          <h2>Security</h2>
+          <form style="padding: 0; box-shadow: none" id="adminPasswordForm">
+            <div class="form-group">
+              <label for="currentPassword">Current Password</label>
+              <input type="password" id="currentPassword" required />
+            </div>
+            <div id="currentPasswordError" class="error-text titanic">
+              Please enter your current password
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input type="password" id="newPassword" required />
+            </div>
+            <div id="newPasswordError" class="error-text titanic">
+              Password must be at least 6 characters long and contain at least
+              one letter and one number
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" required />
+            </div>
+            <div id="confirmPasswordError" class="error-text titanic">
+              Passwords do not match
+            </div>
+            <div class="modal-footer" style="padding-top: 0">
+              <button type="submit" class="btn-primary">Update Password</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="info-card">
+          <h2>Notifications</h2>
+          <form style="padding: 0; box-shadow: none" id="adminNotifForm">
+            <div class="form-group">
+              <label>Email Notifications</label>
+              <select class="custom-select-styled">
+                <option selected>Enabled</option>
+                <option>Disabled</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Weekly Summary</label>
+              <select class="custom-select-styled">
+                <option selected>Enabled</option>
+                <option>Disabled</option>
+              </select>
+            </div>
+            <div class="modal-footer" style="padding-top: 0">
+              <button type="submit" class="btn-primary">Save Preferences</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="./../script.js"></script>
+  </body>
+</html>

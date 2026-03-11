@@ -1,29 +1,29 @@
 /* ========================================================================
-   PROJECTA
-   ========================================================================
-   Organization:
-   1. CSS Variables
-   2. Global Resets & Base Styles
-   3. Form Components (Login/Signup)
-   4. Sidebar Navigation
-   5. Header
-   6. Main Layout
-   7. Dashboard Stats
-   8. Tables
-   9. Projects Grid & Cards
-   10. Modals
-   11. Client Cards (Admin)
-   12. Collaborators
-   13. Tickets Management
-   14. Badges & Tags
-   15. Buttons & Actions
-   16. File Upload
-   17. Utilities & Responsive
+    PROJECTA
+  ========================================================================
+    Organization:
+    1. CSS Variables
+    2. Global Resets & Base Styles
+    3. Form Components (Login/Signup)
+    4. Sidebar Navigation
+    5. Header
+    6. Main Layout
+    7. Dashboard Stats
+    8. Tables
+    9. Projects Grid & Cards
+    10. Modals
+    11. Client Cards (Admin)
+    12. Collaborators
+    13. Tickets Management
+    14. Badges & Tags
+    15. Buttons & Actions
+    16. File Upload
+    17. Utilities & Responsive
    ======================================================================== */
 
 
 /* ========================================================================
-   1. CSS VARIABLES
+    1. CSS VARIABLES
    ======================================================================== */
 
 :root {
@@ -38,6 +38,12 @@
   --color-success-dark: #059669;
   --color-success-light: #D1FAE5;
   --color-success-text: #065F46;
+
+  /* Validation / Green */
+  --color-success-valid: #42c096;
+  --color-success-dark-valid: #059669;
+  --color-success-light-valid: #e4fcef;
+  --color-success-text-valid: #1e6853;
   
   /* Warning / Orange */
   --color-warning: #F59E0B;
@@ -49,6 +55,8 @@
   --color-danger: #EF4444;
   --color-danger-light: #FEE2E2;
   --color-danger-pale: #FFF1F2;
+  --color-danger-bg: #FFE7DF;
+  --color-danger-border: #F2C2B8;
   
   /* Blue / Info */
   --color-blue-light: #DBEAFE;
@@ -81,7 +89,7 @@
 
 
 /* ========================================================================
-   2. GLOBAL RESETS & BASE STYLES
+    2. GLOBAL RESETS & BASE STYLES
    ======================================================================== */
 
 * {
@@ -99,9 +107,52 @@ body {
   line-height: 1.5;
 }
 
+/* Toast */
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-success {
+  background: var(--color-success-light);
+  color: var(--color-success-text);
+  border: 1px solid var(--color-success);
+}
+
+.titanic {
+  display: none !important;
+}
+
+.error-text {
+    font-size: 0.82rem;
+    color: var(--color-danger);
+    background: var(--color-danger-bg);
+    border: 1px solid var(--color-danger-border);
+    margin: -10px auto 8px auto;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+
 
 /* ========================================================================
-   3. FORM COMPONENTS (LOGIN / SIGNUP)
+    3. FORM COMPONENTS (LOGIN / SIGNUP)
    ======================================================================== */
 
 /* --- Base Form Styles --- */
@@ -332,7 +383,7 @@ button:active {
 
 
 /* ========================================================================
-   4. SIDEBAR NAVIGATION
+    4. SIDEBAR NAVIGATION
    ======================================================================== */
 
 #sidebar {
@@ -376,13 +427,13 @@ button:active {
   padding: 0 12px;
   font-size: 0.9rem;
   font-weight: 300;
-  margin-top: 190px;
+  margin-top: 100px;
   justify-content: center;
   letter-spacing: 0.05em;
 }
 
 .sidebar-footer.user span {
-  margin-top: 290px;
+  margin-top: 190px;
 }
 
 #sidebar ul {
@@ -417,7 +468,7 @@ button:active {
 
 
 /* ========================================================================
-   5. HEADER
+    5. HEADER
    ======================================================================== */
 
 .header {
@@ -537,7 +588,7 @@ main {
 
 
 /* ========================================================================
-   7. DASHBOARD STATS
+    7. DASHBOARD STATS
    ======================================================================== */
 
 #board {
@@ -606,7 +657,7 @@ main {
 
 
 /* ========================================================================
-   8. TABLES
+    8. TABLES
    ======================================================================== */
 
 /* --- Overview Section --- */
@@ -695,6 +746,10 @@ main {
   background-color: var(--color-danger-pale) !important;
 }
 
+.archived-row {
+  opacity: 0.45;
+  pointer-events: none;
+}
 /* --- Ticket Info Cell --- */
 
 .ticket-info-cell {
@@ -709,7 +764,7 @@ main {
 
 
 /* ========================================================================
-   9. PROJECTS GRID & CARDS
+    9. PROJECTS GRID & CARDS
    ======================================================================== */
 
 .projects-grid {
@@ -818,6 +873,10 @@ main {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
+}
+
+.card-footer .view-details-btn {
+  margin-left: auto;
 }
 
 /* --- Project Details Page --- */
@@ -1003,7 +1062,7 @@ main {
 
 
 /* ========================================================================
-   10. MODALS
+    10. MODALS
    ======================================================================== */
 
 .modal-overlay {
@@ -1017,7 +1076,19 @@ main {
   align-items: center;
 }
 
+.modal-overlay:target {
+  display: flex;
+}
+
 #projectModal:target {
+  display: flex;
+}
+
+#profileModal:target {
+  display: flex;
+}
+
+#newProjectModal:target {
   display: flex;
 }
 
@@ -1049,10 +1120,6 @@ main {
   display: flex;
 }
 
-#viewTicketModal:target {
-  display: flex;
-}
-
 .modal-content {
   background-color: #fff;
   padding: 32px 32px 32px 75px;
@@ -1080,6 +1147,12 @@ main {
 
 #projectModal .desc{
   margin-top: -20px;
+}
+
+#newProjectModal .modal-content form {
+  margin-top: -30px;
+  max-height: 450px;
+  overflow-y: auto;
 }
 
 #clientModal .modal-content form {
@@ -1490,7 +1563,7 @@ main {
 }
 
 /* ========================================================================
-   11. CLIENT CARDS (ADMIN)
+    11. CLIENT CARDS (ADMIN)
    ======================================================================== */
 
 .admin-clients-grid {
@@ -1591,7 +1664,7 @@ main {
 
 
 /* ========================================================================
-   12. COLLABORATORS
+    12. COLLABORATORS
    ======================================================================== */
 
 .avatar {
@@ -1667,7 +1740,7 @@ main {
 
 
 /* ========================================================================
-   13. TICKETS MANAGEMENT
+    13. TICKETS MANAGEMENT
    ======================================================================== */
 
 .alert-ticket {
@@ -1693,7 +1766,7 @@ main {
 
 
 /* ========================================================================
-   14. BADGES & TAGS
+    14. BADGES & TAGS
    ======================================================================== */
 
 /* --- Status Tags --- */
@@ -1719,6 +1792,16 @@ main {
 .status-tag.pending { 
   background: var(--color-warning-light); 
   color: var(--color-warning-text); 
+}
+
+.status-tag.to-validate { 
+  background: var(--color-success-light-valid); 
+  color: var(--color-success-text-valid);
+}
+
+.status-tag.archived { 
+  background: var(--color-danger-pale); 
+  color: #E11D48;
 }
 
 /* --- Billing Tags --- */
@@ -1770,6 +1853,11 @@ main {
   color: var(--color-danger); 
 }
 
+.badge-priority.urgent { 
+  background: rgb(46, 45, 45); 
+  color: var(--color-indigo-light); 
+}
+
 .badge-priority.medium { 
   background: var(--color-warning-light); 
   color: var(--color-warning-dark); 
@@ -1794,7 +1882,7 @@ main {
 
 
 /* ========================================================================
-   15. BUTTONS & ACTIONS
+    15. BUTTONS & ACTIONS
    ======================================================================== */
 
 /* --- Primary Button --- */
@@ -1938,7 +2026,7 @@ main {
 
 
 /* ========================================================================
-   16. FILE UPLOAD
+    16. FILE UPLOAD
    ======================================================================== */
 
 .file-drop-area {
@@ -1996,7 +2084,7 @@ main {
 
 
 /* ========================================================================
-   17. UTILITIES & RESPONSIVE
+    17. UTILITIES & RESPONSIVE
    ======================================================================== */
 
 /* --- Responsive Adjustments --- */
